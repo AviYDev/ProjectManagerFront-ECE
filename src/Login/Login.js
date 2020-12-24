@@ -1,0 +1,85 @@
+import React, {
+    Component, useState
+} from 'react';
+import {Button, FormControl, FormGroup, FormLabel} from "react-bootstrap";
+import "./Login.css";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
+import Home from "../Home/Home";
+import {BrowserRouter as Router, Switch, Route, Link, Redirect} from "react-router-dom";
+import '../bootstrap/dist/css/bootstrap.min.css';
+class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isSignin: true,
+            is_connected: false,
+        }
+    }
+
+
+
+    hello = () => {
+        this.setState({isSignin: !this.state.isSignin});
+        // connexion={this.connexion.bind(this)}
+    }
+    connexion = () => {
+        this.setState({is_connected: !this.state.is_connected});
+    }
+
+    render() {
+        if (this.state.is_connected) {
+                   return( <Home disconnexion={this.connexion} />);
+        } else {
+
+            return (
+                <div className="App-header App-content Login">
+                    <Router>
+                        <div>
+                            <Switch>
+                                <Route path="/" exact component={(props) => <SignIn{...props} connexion={this.connexion}/>} />
+                                <Route path="/SignIn" component={(props) => <SignIn{...props} connexion={this.connexion}/>} />
+                                <Route path="/SignUp" component={SignUp}/>
+                            </Switch>
+                            <Redirect exact from="/" to="/SignIn" />
+
+                        </div>
+                    </Router>
+
+                </div>
+
+
+
+            );
+
+
+        }
+    }
+}
+
+/*
+    if (this.state.isSignin){
+                        return ( <div className="App">
+                        <SignIn onChangeSignup={this.hello} connexion={this.connexion}/>
+                        </div>);
+                    }
+                    else{
+                        return(
+                        <div className="App">
+                        <SignUp onChangeSignup={this.hello}/>
+                        </div>);
+                    }
+
+ */
+export default Login;
+
+/*    <Link to={"/SignIn"}>
+                            <Button className="NavButton2">
+                                Login
+                            </Button>
+                        </Link>
+                        <Link to={"/SignUp"}>
+                            <Button className="NavButton2" >
+                                Subscribe
+                            </Button>
+                        </Link>*/
