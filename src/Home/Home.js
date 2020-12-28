@@ -18,8 +18,10 @@ class Home extends Component {
 
         super(props);
         this.disconnect = this.disconnect.bind(this);
+        this.userInfo = "";
         this.state = {
             userInfo : "",
+            userPayload:"",
             balance : "",
             showA : true,
             redirect: false,
@@ -67,30 +69,62 @@ class Home extends Component {
             .catch(console.log)
     }
     componentDidMount() {
+
         this.setState({redirect: false});
-        console.log("test " + localStorage.getItem('id'));
-        fetch('http://localhost:8000/v1/users/'+localStorage.getItem('id'),{
-            method: 'GET',
+
+
+        fetch('http://localhost:3001/getUser',  {
+            method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'access_token':localStorage.getItem('access_token'),
             }
-        })
-            .then(res => res.json())
+        })   .then(res => res.json())
             .then((data) => {
-                console.log(data);
+                console.log('UserInfo !');
+
                 this.setState({ userInfo: data })
+                this.setState({ userPayload:  JSON.parse(localStorage.getItem('payload'))})
+
+                console.log(this.state);
+                let result = this.state.userInfo.UserAttributes.map(a => a.Name);
+                console.log(result)
+                if (!result.includes("custom:access_token_gitlab")){
+                    alert("EMPTY");
+                }
+
+                //TODO UI to change password and put secret key from gitlab
+
+                if (this.state.userInfo.Username == "Avinash") {
+                    fetch('http://localhost:3001/accessToken_gitlab', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                        }
+                    }).then(
+                        (result) => {
+                            console.log(result);
+                        },
+                        (error) => {
+                            console.log("error");
+                            console.log(error);
+                        }
+                    )
+
+                }
+
+
             })
             .catch(console.log)
-
-        this.solde();
     }
 
     render() {
         const { redirect } = this.state;
 
         if (redirect) {
-            return <Redirect to='/'/>;
+            return <Redirect to='/SignIn'/>;
         }
 
         return(
@@ -99,7 +133,7 @@ class Home extends Component {
                 <Router>
                 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                     <Link to={"/Pages/HomeView"}>
-                        <Navbar.Brand>Watermelon</Navbar.Brand>
+                        <Navbar.Brand>ECE Project Manager</Navbar.Brand>
                     </Link>
 
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -115,7 +149,7 @@ class Home extends Component {
                         <Nav>
 
                             <Navbar.Text>
-                                Signed in as: <a href="#login">{this.state.userInfo.first_name}</a>
+                                Signed in as :  <a href="#login"> &nbsp;{this.state.userInfo.Username} </a>
                             </Navbar.Text>
                         </Nav>
                         <Nav><ButtonToolbar>
@@ -131,8 +165,7 @@ class Home extends Component {
                 <div className="App-header App-content">
 
 
-
-
+                    {this.state.userPayload["cognito:groups"]}
 
                 </div>
             </Router>

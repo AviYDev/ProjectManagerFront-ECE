@@ -1,6 +1,7 @@
 import React, {
     Component, useState
 } from 'react';
+import {Route, Switch} from "react-router-dom";
 import {Button, FormControl, FormGroup, FormLabel} from "react-bootstrap";
 
 class SignIn extends Component {
@@ -61,9 +62,11 @@ class SignIn extends Component {
             .then(
                 (result) => {
 
-                    localStorage.setItem('id', result.id);
-                    localStorage.setItem('access_token', result.access_token);
-                    console.log(localStorage.getItem('id') + " & " + localStorage.getItem('access_token'));
+                    localStorage.setItem('username', result.accessToken.username);
+                    localStorage.setItem('access_token', result.accessToken.jwtToken);
+                    localStorage.setItem('payload', JSON.stringify(result.accessToken.payload));
+                    console.log(localStorage.getItem('access_token'));
+                    console.log(result);
                     this.setState({
                         isLoaded: true,
                         items: result.items
@@ -89,8 +92,6 @@ class SignIn extends Component {
     render() {
         return(
             <div>
-
-
                 <form  border border-dark onSubmit={this.handleSubmit}>
                     <FormGroup controlId="email" >
                         <FormLabel>Email</FormLabel>
