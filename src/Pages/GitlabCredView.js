@@ -97,7 +97,7 @@ class GitlabCredView extends Component {
 
         if (isConnected){
             return (
-            <div style={{width: '35%', margin: 'auto'}}>
+            <div style={{marginTop: '25%', width: '35%', margin: 'auto'}}>
                 <p style={{color: 'grey'}}>
                     {this.props.gitlabKey}
                 </p>
@@ -111,7 +111,7 @@ class GitlabCredView extends Component {
         }else {
             return (
 
-                <div style={{width: '35%', margin: 'auto'}}>
+                <div style={{marginTop: '25%',width: '35%', margin: 'auto'}}>
                     {this.props.gitlabKey}
                     {isConnected ? this.props.gitlabKey : ''}
                     <form border border-dark onSubmit={this.handleSubmit}>
