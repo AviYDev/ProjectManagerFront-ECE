@@ -19,17 +19,7 @@ class SignUp extends Component {
             isLoaded: true,
             items: null,
 
-            /*option : {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: this.state.email,
-                    password: this.state.password,
-                })
-            }*/
+
         };
 
     }

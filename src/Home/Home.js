@@ -53,12 +53,6 @@ class Home extends Component {
         localStorage.clear();
         this.setState({redirect: true});
         window.location.reload(false);
-        //let history = useHistory();
-
-      // const redirect = () => {
-        //    history.push('/SignIn')
-        //}
-       // this.setState( {redirect : redirect}):
 
 
     }
@@ -84,8 +78,6 @@ class Home extends Component {
                 }
                 console.log(projects);
                 this.setState({ gitlab_public: projects})
-
-               // NotificationManager.success('From public gitlab repositories','Repository loaded', 3000);
             },
             (error) => {
                 console.log("error");
@@ -114,7 +106,7 @@ class Home extends Component {
                 console.log(projects);
                 this.setState({ gitlab_ece: projects})
 
-                //NotificationManager.success('From ECE Organization','Repository loaded', 3000);
+
             },
             (error) => {
                 console.log("error");

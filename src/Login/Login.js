@@ -60,29 +60,5 @@ class Login extends Component {
     }
 }
 
-/*
-    if (this.state.isSignin){
-                        return ( <div className="App">
-                        <SignIn onChangeSignup={this.hello} connexion={this.connexion}/>
-                        </div>);
-                    }
-                    else{
-                        return(
-                        <div className="App">
-                        <SignUp onChangeSignup={this.hello}/>
-                        </div>);
-                    }
 
- */
 export default Login;
-
-/*    <Link to={"/SignIn"}>
-                            <Button className="NavButton2">
-                                Login
-                            </Button>
-                        </Link>
-                        <Link to={"/SignUp"}>
-                            <Button className="NavButton2" >
-                                Subscribe
-                            </Button>
-                        </Link>*/
