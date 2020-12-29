@@ -114,7 +114,7 @@ class Home extends Component {
                 NotificationManager.error('', 'Cannot acces to Gitlab', 5000);
             }
         )
-      //  setTimeout(this.getRepolist, 20000);
+        setTimeout(this.getRepolist, 20000);
     }
     gitlabKeyAdded(gitlabKey, isConnected){
 
