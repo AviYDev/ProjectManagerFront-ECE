@@ -77,7 +77,7 @@ class SignIn extends Component {
                    // this.handleToUpdate('someVar');
                 },
                 (error) => {
-                    console.log("error");
+                    console.log("error logging");
                     NotificationManager.error('', 'Cannot acces to ECE-ProjectManager Server', 5000);
                     this.setState({
                         isLoaded: false,
