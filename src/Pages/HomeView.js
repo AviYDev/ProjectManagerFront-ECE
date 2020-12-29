@@ -18,7 +18,7 @@ class HomeView extends Component {
                     })}
                 </ul>
             </div>
-        <div style={{marginLeft:'20%',textAlign: 'right',float: 'left'}}><p style={{fontSize: '1.8rem'}}>Public</p>
+        <div style={{marginLeft:'10%',textAlign: 'right',float: 'left'}}><p style={{fontSize: '1.8rem'}}>Public</p>
             <ul>
                 {this.props.gitlab_public.map(function(name, index){
                     return <div key={ index }>{name}</div>;
