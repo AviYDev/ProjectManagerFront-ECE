@@ -9,8 +9,8 @@ class HomeView extends Component {
 
     render() {
         return(
-            <div id="repositories">
-            <div style={{float: 'left'}}><p>Org ECE</p>
+            <div className="" style={{marginTop:'10%',float: 'left', width: '100%', paddingLeft:'10%'}} id="repositories">
+            <div style={{textAlign: 'left',float: 'left'}}><p style={{fontSize: '1.8rem'}}>ECE Organization</p>
 
                 <ul>
                     {this.props.gitlab_ece.map(function(name, index){
@@ -18,7 +18,7 @@ class HomeView extends Component {
                     })}
                 </ul>
             </div>
-        <div style={{float: 'left'}}><p>Public</p>
+        <div style={{marginLeft:'20%',textAlign: 'right',float: 'left'}}><p style={{fontSize: '1.8rem'}}>Public</p>
             <ul>
                 {this.props.gitlab_public.map(function(name, index){
                     return <div key={ index }>{name}</div>;
