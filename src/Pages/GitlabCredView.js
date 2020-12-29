@@ -97,11 +97,10 @@ class GitlabCredView extends Component {
 
         if (isConnected){
             return (
-            <div style={{marginTop: '25%', width: '35%', margin: 'auto'}}>
+            <div style={{marginRight:'auto',marginLeft:'auto', marginTop: '15%', width: '35%'}}>
                 <p style={{color: 'grey'}}>
                     {this.props.gitlabKey}
                 </p>
-
                 <Button block className="btn  btn-danger"
                         onClick={this.deleteGitlabKey} >
                     Delete
@@ -111,7 +110,7 @@ class GitlabCredView extends Component {
         }else {
             return (
 
-                <div style={{marginTop: '25%',width: '35%', margin: 'auto'}}>
+                <div style={{marginRight:'auto',marginLeft:'auto', marginTop: '15%', width: '35%'}}>
                     {this.props.gitlabKey}
                     {isConnected ? this.props.gitlabKey : ''}
                     <form border border-dark onSubmit={this.handleSubmit}>
