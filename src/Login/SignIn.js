@@ -10,7 +10,8 @@ class SignIn extends Component {
     constructor(props) {
 
         super(props);
-        this.hostname = 'https://ece-project-manager-back.herokuapp.com'
+        this.hostname = 'https://ece-projectmanager-back.herokuapp.com'
+       // this.hostname = 'http://localhost:3001'
         this.login = this.login.bind(this);
         this.state = {
             count: 0,

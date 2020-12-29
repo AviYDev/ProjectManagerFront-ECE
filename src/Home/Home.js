@@ -21,7 +21,7 @@ class Home extends Component {
 //http://localhost:3001
 
         super(props);
-        this.hostname = 'https://ece-project-manager-back.herokuapp.com'
+        this.hostname = 'https://ece-projectmanager-back.herokuapp.com'
         this.disconnect = this.disconnect.bind(this);
         this.gitlabKeyAdded = this.gitlabKeyAdded.bind(this);
         this.getRepolist = this.getRepolist.bind(this);
@@ -38,17 +38,7 @@ class Home extends Component {
             gitlab_public:[],
             gitlab_ece:[],
 
-            /*option : {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: this.state.email,
-                    password: this.state.password,
-                })
-            }*/
+
         };
 
     }
@@ -192,12 +182,7 @@ class Home extends Component {
             })
             .catch(console.log)
     }
-/*   if (this.state.redirect) {
-            return (
-                <Router>
-                <Redirect exact from="/" to='/SignIn'/>
-                </Router>);
-        }*/
+
     render() {
         const { redirect } = this.state;
 
@@ -280,32 +265,3 @@ class Home extends Component {
 
 
 export default Home;
-
-/*
-*  <div>
-                            <Switch>
-
-
-                                <Route path="/" exact component={(props) => <HomeView{...props} user={this.state.userInfo} balance={this.state.balance} />} />
-                                <Route path="/Pages/HomeView" component={(props) => <HomeView{...props} user={this.state.userInfo} balance={this.state.balance} />} />
-
-
-
-                            </Switch>
-                            <Redirect exact from="/" to="/Pages/HomeView" />
-
-                        </div>
-*/
-/*
-
-                             <!--   <Link to={"/Pages/TransfersView"}>
-                                    <Button  className="NavButton" >Transfers</Button>
-                                </Link>
-                                <Link to={"/Pages/CardsView"}>
-                                    <Button className="NavButton"  >Cards</Button>
-                                </Link>
-                                <Link to={"/Pages/HistoricView"}>
-                                    <Button className="NavButton"  >Historic</Button>
-                                </Link>
--->
-*/
