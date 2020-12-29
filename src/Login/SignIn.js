@@ -47,7 +47,7 @@ class SignIn extends Component {
     login() {
         console.log(this.state.email);
         console.log(this.state);
-        fetch('http://localhost:3001/login',  {
+        fetch('https://ece-project-manager-back.herokuapp.com/login',  {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -94,7 +94,7 @@ class SignIn extends Component {
             <div>
                 <form  border border-dark onSubmit={this.handleSubmit}>
                     <FormGroup controlId="email" >
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel>Username</FormLabel>
                         <FormControl
                             autoFocus
                             type="text"

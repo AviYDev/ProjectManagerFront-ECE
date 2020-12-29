@@ -8,6 +8,7 @@ import SignUp from "./SignUp";
 import Home from "../Home/Home";
 import {BrowserRouter as Router, Switch, Route, Link, Redirect} from "react-router-dom";
 import '../bootstrap/dist/css/bootstrap.min.css';
+import AWSlogo from '../Ressources/awslogo.png';
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -46,6 +47,8 @@ class Login extends Component {
                         </div>
                     </Router>
 
+                    <p style={{fontSize:'1rem', marginTop:'2%'}}> Identity managed by &nbsp;<img style={{width:'15%'}} src={AWSlogo} alt="Logo" /></p>
+                    <p style={{fontSize:'1rem'}}>Avinash & Joris </p>
                 </div>
 
 
