@@ -18,9 +18,10 @@ import {Redirect} from "react-router";
 class Home extends Component {
 
     constructor(props) {
-
+//http://localhost:3001
 
         super(props);
+        this.hostname = 'https://ece-project-manager-back.herokuapp.com'
         this.disconnect = this.disconnect.bind(this);
         this.gitlabKeyAdded = this.gitlabKeyAdded.bind(this);
         this.getRepolist = this.getRepolist.bind(this);
@@ -75,7 +76,7 @@ class Home extends Component {
 
     getRepolist(){
         NotificationManager.info('','Loading projects ...', 2000);
-        fetch('http://localhost:3001/all_repolist_gitlab', {
+        fetch(this.hostname+'/all_repolist_gitlab', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -104,7 +105,7 @@ class Home extends Component {
         )
 
 
-        fetch('http://localhost:3001/ece_repolist_gitlab', {
+        fetch(this.hostname+'/ece_repolist_gitlab', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -156,7 +157,7 @@ class Home extends Component {
         this.setState({redirect: false});
 
 
-        fetch('http://localhost:3001/getUser',  {
+        fetch(this.hostname+'/getUser',  {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

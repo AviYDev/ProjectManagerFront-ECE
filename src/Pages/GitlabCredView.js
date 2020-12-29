@@ -20,6 +20,7 @@ class GitlabCredView extends Component {
 
 
         super(props);
+        this.hostname = 'https://ece-project-manager-back.herokuapp.com'
         this.addGitlabKey = this.addGitlabKey.bind(this);
         this.deleteGitlabKey = this.deleteGitlabKey.bind(this)
         this.userInfo = "";
@@ -54,7 +55,7 @@ class GitlabCredView extends Component {
     }
 
     deleteGitlabKey(){
-        fetch('http://localhost:3001/accessToken_gitlab', {
+        fetch(this.hostname+'/accessToken_gitlab', {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
@@ -75,7 +76,7 @@ class GitlabCredView extends Component {
     }
     addGitlabKey(){
         console.log(this.state.gitlabKey)
-        fetch('http://localhost:3001/accessToken_gitlab', {
+        fetch(this.hostname+'/accessToken_gitlab', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

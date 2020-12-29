@@ -8,7 +8,9 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 class SignIn extends Component {
 
     constructor(props) {
+
         super(props);
+        this.hostname = 'https://ece-project-manager-back.herokuapp.com'
         this.login = this.login.bind(this);
         this.state = {
             count: 0,
@@ -20,6 +22,7 @@ class SignIn extends Component {
         };
 
     }
+
 
 
 
@@ -48,7 +51,7 @@ class SignIn extends Component {
     login() {
         console.log(this.state.email);
         console.log(this.state);
-        fetch('https://ece-project-manager-back.herokuapp.com/login',  {
+        fetch(this.hostname+'/login',  {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
