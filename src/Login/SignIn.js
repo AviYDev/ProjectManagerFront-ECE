@@ -95,7 +95,6 @@ class SignIn extends Component {
                 },
                 (error) => {
                     console.log("error renew");
-                    NotificationManager.error(error.message, 'Error', 5000);
                     this.setState({
                         isLoaded: false,
                     });
