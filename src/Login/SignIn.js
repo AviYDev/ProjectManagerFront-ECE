@@ -11,8 +11,8 @@ class SignIn extends Component {
 
 
         super(props);
-        //this.hostname = 'https://ece-projectmanager-back.herokuapp.com'
-        this.hostname = 'http://localhost:3001'
+        this.hostname = 'https://ece-projectmanager-back.herokuapp.com'
+        //this.hostname = 'http://localhost:3001'
         this.login = this.login.bind(this);
         this.backlogin = this.backlogin.bind(this);
         this.renewPassword = this.renewPassword.bind(this);
