@@ -13,6 +13,7 @@ import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import { BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import GitlabCredView from "../Pages/GitlabCredView";
 import HomeView from "../Pages/HomeView";
+import AdminView from "../Pages/AdminView";
 import {Redirect} from "react-router";
 
 class Home extends Component {
@@ -205,7 +206,11 @@ class Home extends Component {
                                         <Link to={"/Pages/GitlabCredView"}>
                                             <Button  className="NavButton" >Gitlab Token</Button>
                                         </Link>
-
+                                        {this.state.userInfo.Username == 'admin' ?
+                                            <Link to={"/Pages/AdminView"}>
+                                                <Button className="NavButton">Admin settings</Button>
+                                            </Link>: ''
+                                        }
 
                                     </ButtonToolbar>
 
@@ -237,7 +242,7 @@ class Home extends Component {
 
                                     <Route path="/Pages/HomeView" component={(props) => <HomeView{...props} gitlab_public={this.state.gitlab_public} gitlab_ece={this.state.gitlab_ece} />} />
                                     <Route path="/Pages/GitlabCredView" component={(props) => <GitlabCredView{...props}  gitlabKey={this.state.gitlabKey} gitlabKeyAdded={this.gitlabKeyAdded} user={this.state.userInfo}  />} />
-
+                                    <Route path="/Pages/AdminView" component={(props) => <AdminView{...props}    />} />
                                 </Switch>
                                 <Redirect exact from="/" to="/Pages/HomeView" />
 
