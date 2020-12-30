@@ -13,8 +13,8 @@ class GitlabCredView extends Component {
 
 
         super(props);
-        this.hostname = 'https://ece-projectmanager-back.herokuapp.com'
-        //this.hostname = 'http://localhost:3001'
+        //this.hostname = 'https://ece-projectmanager-back.herokuapp.com'
+        this.hostname = 'http://localhost:3001'
         this.addGitlabKey = this.addGitlabKey.bind(this);
         this.deleteGitlabKey = this.deleteGitlabKey.bind(this)
         this.userInfo = "";
