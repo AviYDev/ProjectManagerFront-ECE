@@ -23,6 +23,7 @@ class Home extends Component {
 
         super(props);
         this.hostname = 'https://ece-projectmanager-back.herokuapp.com'
+        //this.hostname = 'http://localhost:3001'
         this.disconnect = this.disconnect.bind(this);
         this.gitlabKeyAdded = this.gitlabKeyAdded.bind(this);
         this.getRepolist = this.getRepolist.bind(this);

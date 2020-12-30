@@ -22,7 +22,7 @@ class Login extends Component {
 
     hello = () => {
         this.setState({isSignin: !this.state.isSignin});
-        // connexion={this.connexion.bind(this)}
+
     }
     connexion = () => {
         this.setState({is_connected: !this.state.is_connected});

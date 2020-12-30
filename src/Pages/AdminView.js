@@ -23,22 +23,3 @@ class AdminView extends Component {
 
 export default AdminView;
 
-/*<Card bg="warning" text="grey" style={{ width: '25rem' }}>
-                        <Card.Body>
-                            <Card.Title> Welcome to Watermelon &nbsp;
-                                {this.props.user.first_name}</Card.Title>
-                            <Card.Text>
-                                Avalaible : {this.props.balance} €
-                            </Card.Text>
-                        </Card.Body>
-                <Link to={"/Pages/DepositView"}>
-                    <Button block className="btn-dark"  type="submit">
-                       Deposit
-                    </Button>
-                </Link>
-                <Link to={"/Pages/WithdrawView"}>
-                    <Button style={{marginTop: 0.5 + 'em'}}  block className="btn-dark"  type="submit">
-                        Withdraw
-                    </Button>
-                </Link>
-                    </Card>*/

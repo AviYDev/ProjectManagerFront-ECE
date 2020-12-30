@@ -9,10 +9,10 @@ class SignIn extends Component {
 
     constructor(props) {
 
-        //gSjb4csVx_6ZSFR6Kuda
+
         super(props);
         this.hostname = 'https://ece-projectmanager-back.herokuapp.com'
-        //this.hostname = 'http://localhost:3001'
+      //  this.hostname = 'http://localhost:3001'
         this.login = this.login.bind(this);
         this.backlogin = this.backlogin.bind(this);
         this.renewPassword = this.renewPassword.bind(this);
@@ -22,7 +22,7 @@ class SignIn extends Component {
             email: "",
             password: "",
             state: '',
-            isLoaded: true,
+            isLoaded: false,
             items: null,
         };
 
@@ -33,6 +33,9 @@ class SignIn extends Component {
 
     componentDidMount() {
         console.log("test");
+        this.setState({
+            isLoaded: false
+        });
         if (localStorage.getItem('access_token') != null) {
             this.setState({
                 isLoaded: true
@@ -75,23 +78,16 @@ class SignIn extends Component {
                     console.log(result.status)
                     if (result.status !== "error"){
                         console.log("PASS HERE")
-                   // localStorage.setItem('username', result.accessToken.username);
-                    //localStorage.setItem('access_token', result.accessToken.jwtToken);
-                    //localStorage.setItem('payload', JSON.stringify(result.accessToken.payload));
-                    //console.log(localStorage.getItem('access_token'));
-                    //console.log(result);
                     this.setState({
                         isLoaded: true,
                         items: result.items,
                         isNew : false
                     });
                     console.log(this.state.isLoaded)
-                    //this.props.connexion();
                     }else{
                         console.log("error renew");
                         NotificationManager.error(result.message, 'Error', 5000);
                     }
-                    // this.handleToUpdate('someVar');
                 },
                 (error) => {
                     console.log("error renew");
@@ -122,7 +118,10 @@ class SignIn extends Component {
         }).then(res => res.json())
             .then(
                 (result) => {
-                    if(result["value"] != "renew"){
+                    if (result.code === 'NotAuthorizedException'){
+                        NotificationManager.error(result.message, '', 3000);
+                    }
+                    else if(result["value"] != "renew"){
                         console.log("LOGINNNN")
                     console.log(result);
                     localStorage.setItem('username', result.accessToken.username);
@@ -138,17 +137,15 @@ class SignIn extends Component {
                     console.log(this.state.isLoaded)
                     this.props.connexion();
                     } else {
-                        console.log("NEED TO RENEW")
-                        //NotificationManager.info('', 'Please reset your password', 5000);
+                        console.log("Reset password")
+                        NotificationManager.info('Please reset your password', '', 5000);
                         this.setState({isNew : true});
                         this.setState({password : ""});
-
                     }
-                   // this.handleToUpdate('someVar');
                 },
                 (error) => {
                     console.log("error logging");
-                    NotificationManager.error('', 'Cannot acces to ECE-ProjectManager Server', 5000);
+                    NotificationManager.error('Cannot acces to ECE-ProjectManager Server', '', 3000);
                     this.setState({
                         isLoaded: false,
                     });
@@ -213,6 +210,7 @@ class SignIn extends Component {
                         </Button>
 
                     </form>
+                    <NotificationContainer/>
                 </div>);
         }
     }

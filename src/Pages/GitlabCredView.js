@@ -14,6 +14,7 @@ class GitlabCredView extends Component {
 
         super(props);
         this.hostname = 'https://ece-projectmanager-back.herokuapp.com'
+        //this.hostname = 'http://localhost:3001'
         this.addGitlabKey = this.addGitlabKey.bind(this);
         this.deleteGitlabKey = this.deleteGitlabKey.bind(this)
         this.userInfo = "";
@@ -26,17 +27,6 @@ class GitlabCredView extends Component {
             showA : true,
             redirect: false,
 
-            /*option : {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: this.state.email,
-                    password: this.state.password,
-                })
-            }*/
         };
 
     }
@@ -99,7 +89,7 @@ class GitlabCredView extends Component {
             return (
             <div style={{marginRight:'auto',marginLeft:'auto', marginTop: '15%', width: '35%'}}>
                 <p style={{color: 'grey'}}>
-                    {this.props.gitlabKey}
+                    Personal access token already registred
                 </p>
                 <Button block className="btn  btn-danger"
                         onClick={this.deleteGitlabKey} >
@@ -142,22 +132,3 @@ class GitlabCredView extends Component {
 
 export default GitlabCredView;
 
-/*<Card bg="warning" text="grey" style={{ width: '25rem' }}>
-                        <Card.Body>
-                            <Card.Title> Welcome to Watermelon &nbsp;
-                                {this.props.user.first_name}</Card.Title>
-                            <Card.Text>
-                                Avalaible : {this.props.balance} €
-                            </Card.Text>
-                        </Card.Body>
-                <Link to={"/Pages/DepositView"}>
-                    <Button block className="btn-dark"  type="submit">
-                       Deposit
-                    </Button>
-                </Link>
-                <Link to={"/Pages/WithdrawView"}>
-                    <Button style={{marginTop: 0.5 + 'em'}}  block className="btn-dark"  type="submit">
-                        Withdraw
-                    </Button>
-                </Link>
-                    </Card>*/
