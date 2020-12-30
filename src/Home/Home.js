@@ -200,7 +200,7 @@ class Home extends Component {
                                 <Nav className="mr-auto">
                                     <ButtonToolbar>
                                         <Link to={"/Pages/HomeView"}>
-                                            <Button  className="NavButton" >Home</Button>
+                                            <Button  className="NavButton" >Repositories</Button>
                                         </Link>
                                         <Link to={"/Pages/GitlabCredView"}>
                                             <Button  className="NavButton" >Gitlab Token</Button>
