@@ -6,8 +6,11 @@
 <img style="width:10%" src="https://assets.stickpng.com/thumbs/58480873cef1014c0b5e48ea.png">
 
 Projet ING5 APP
-###Joris Dufresne & Avinash Yoganandan
-##https://ece-projectmanager.herokuapp.com/
+
+### Joris Dufresne & Avinash Yoganandan
+
+
+## https://ece-projectmanager.herokuapp.com/
 
 ## En Bref
 Connexion à une interface liée à une org sur AWS permettant de lister les projets selon le groupe d'un utilisateur.
